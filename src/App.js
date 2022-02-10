@@ -1,11 +1,10 @@
 import './App.css';
+import Routing from './Routing';
 
 function App() {
-  return (
-    <div className="App">
-      <p>Hello World</p>
-    </div>
-  );
+  return <>
+     <Routing />
+  </>
 }
 
 export default App;
