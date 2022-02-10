@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { socket } from "../Utils/webSocket";
 
 function VideoConference() {
 
@@ -10,12 +11,16 @@ function VideoConference() {
       const video = document.getElementById('user-video');
       video.srcObject = stream;
       video.onloadedmetadata = function (e) {
-        video.play();
+      video.play();
+
+      const name = localStorage.getItem('name');
+      socket.emit('join-call', {name: name, stream: stream});
       };
     }, () => {
         alert('Cannot access User Camera and Mic');
       });
   }, []);
+
 
   return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

@@ -18,7 +18,6 @@ function Login() {
     console.log(name);
     setName('');
 
-    socket.emit('join-call', {name})
     history.push('/video-conference');
   }
 
